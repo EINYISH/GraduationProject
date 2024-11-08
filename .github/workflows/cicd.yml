@@ -38,7 +38,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: GraduationProjectApplication  # 올바른 애플리케이션 이름
-          environment_name: GraduationProjectApplication-env-1          # 올바른 환경 이름
+          environment_name: GraduationProjectApplication-env         # 올바른 환경 이름
           version_label: github-actions-${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
           deployment_package: ./build/libs/${{env.artifact}}
