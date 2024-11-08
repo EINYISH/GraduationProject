@@ -1,5 +1,6 @@
 package Hoon.graduationproject.util;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -20,6 +21,13 @@ public class GPTApiService {
     @Value("${openai.api-key}")
     private String apiKey;
 
+    @PostConstruct
+    public void checkApiKey(){
+        System.out.println("API Key: " + apiKey);
+        if (apiKey == null || apiKey.isEmpty()){
+            throw new IllegalStateException(("API 키가 주입되지 않았습니다."));
+        }
+    }
     private static final String API_URL = "https://api.openai.com/v1/completions";
 
     public List<String> generateInterviewQuestions(String resumeContent) {
