@@ -38,3 +38,7 @@ test {
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint:unchecked"
 }
+
+jar{
+    enabled = false
+}
